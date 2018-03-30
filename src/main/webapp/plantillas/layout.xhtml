@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      locale="#{facesContext.externalContext.requestLocale}">
+    <html>
+        <h:head>
+             <style type="text/css">
+                    @import "css/main.css";
+                    @import "css/links.css";
+                    @import "css/tablas.css";
+                </style>
+        </h:head>
+
+        <h:body>
+                <div id="contenedor">
+
+			<div id="cabecera">
+                            <ui:insert name="header">
+                                <ui:include src="/comun/cabecera.xhtml" />
+                            </ui:insert>
+			</div>
+                    
+                	<div id="menu">	
+                            <ui:insert name="menus">
+                                <ui:include src="/comun/menu.xhtml" />
+                            </ui:insert>
+			</div>
+
+			<div id="cuerpo">
+                            <ui:insert name="body">
+                                <ui:include src="/comun/cuerpo.xhtml" />
+                            </ui:insert>
+			</div>
+
+			<div id="pie">
+                            <ui:insert name="footer">
+                                <ui:include src="/comun/pie.xhtml" />
+                            </ui:insert>
+			</div>
+            </div>
+
+        </h:body>
+    </html>
+</f:view>    
+    
