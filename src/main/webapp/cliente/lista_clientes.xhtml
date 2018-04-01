@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/plantillas/layout.xhtml">
+        <ui:define name="body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title"><h:outputText value="#{msjs.menu_lista}" /></h4>
+                            <ol class="breadcrumb p-0 m-0">
+                                <li>
+                                   <a href="#{request.contextPath}/faces/principal.xhtml">
+                                    <h:outputText value="#{msjs.menu_inicio}" />
+                                   </a>
+                                </li>
+                                <li class="active">
+                                    <h:outputText value="#{msjs.menu_lista}" />
+                                </li>
+                            </ol>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <h:form>
+                        <div class="table-responsive">
+                        <h:dataTable value="#{clienteBean.clientList}" var="list" class="table table-hover table-colored table-primary">
+                            <h:column>
+                                <f:facet name="header"><h:outputText value="#{msjs.table_apellidos}"/></f:facet>
+                                <h:outputText value="#{list.apellido}" />, <h:outputText value="#{list.nombre}" />
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header"><h:outputText value="#{msjs.table_genero}"/></f:facet>
+                                <h:outputText value="#{list.genero}"></h:outputText>
+                            </h:column>
+                            <h:column>    
+                                <f:facet name="header"><h:outputText value="#{msjs.table_profesion}"/></f:facet>
+                                <h:outputText value="#{list.profesion}"></h:outputText>
+                            </h:column>
+                            <h:column>    
+                                <f:facet name="header"><h:outputText value="#{msjs.table_movil}"/></f:facet>
+                                <h:outputText value="#{list.numeroMovil}"></h:outputText>
+                            </h:column>
+                            <h:column>     
+                                <f:facet name="header"><h:outputText value="#{msjs.table_publicidad}"/></f:facet>
+                                <h:outputText value="#{list.publicidad}"></h:outputText>                           
+                            </h:column>
+                            <h:column>     
+                                <f:facet name="header"><h:outputText value="#{msjs.table_email}"/></f:facet>
+                                <h:outputText value="#{list.correo}"></h:outputText>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"></f:facet>
+                                <h:commandLink  class="btn btn-warning btn-xs" value="#{msjs.table_editar}" action="#{clienteBean.editar(list.codigo)}"/>   
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header"></f:facet>                
+                                <h:commandLink value="#{msjs.table_eliminar}" onclick="return confirm('¿Desea eliminar el registro seleccionado?');" class="btn btn-danger btn-xs" role="button" action="#{clienteBean.eliminar(list.codigo)}" />   
+                            </h:column>
+
+                        </h:dataTable>
+                         </div>
+                    </h:form>
+
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- container -->
+                
+        </ui:define>
+    </ui:composition>
+</f:view>

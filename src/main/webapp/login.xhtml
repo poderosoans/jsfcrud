@@ -1,45 +1,109 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <f:view locale="#{facesContext.externalContext.requestLocale}"> 
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        locale="#{facesContext.externalContext.requestLocale}">
+    <html>
         <h:head>
-            <title>Facelet Title</title>
-        </h:head>
-        <h:body>
-            <h1>#{msjs.titulo_principal}</h1>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title>Login | CRUD - JSF</title>
 
-            <h:form>
-                <p:panelGrid columns="2" >
-                    <f:facet name="header">
-                        #{msjs.titulo_login}
-                    </f:facet>
-                    <p:outputLabel value="#{msjs.form_usuario}"/>
-                    <p:inputText value="#{login.usuario.username}"/>
-                    <p:outputLabel value="#{msjs.form_contrasena}"/>
-                    <p:password value="#{login.usuario.password}" feedback="true"
-                                promptLabel="#{msjs.mensaje_contrasena}" />
-                    
-                    <f:facet name="footer">
-                        <p:commandButton value="#{msjs.form_boton_ingresar}"
-                                         action="#{login.autenticar()}"
-                                         update="msgLogin"
-                                         ajax="false" />
-                            
-                    </f:facet>
-                    <p:messages id="msgLogin" />
-                </p:panelGrid>
-            </h:form>
+            <!-- Styles -->
+            <link href="#{request.contextPath}/assets/css/app.css" rel="stylesheet" />
+            <link href="#{request.contextPath}/assets/css/core.css" rel="stylesheet" type="text/css" />
+            <link href="#{request.contextPath}/assets/css/components.css" rel="stylesheet" type="text/css" />
+            <link href="#{request.contextPath}/assets/css/icons.css" rel="stylesheet" type="text/css" />
+            <link href="#{request.contextPath}/assets/css/pages.css" rel="stylesheet" type="text/css" />
+            <link href="#{request.contextPath}/assets/css/menu.css" rel="stylesheet" type="text/css" />
+            <link href="#{request.contextPath}/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        </h:head>
+
+        <h:body class="bg-transparent">
+
+            <!-- HOME -->
+            <section>
+                <div class="container-alt">
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="wrapper-page">
+
+                                <div class="m-t-40 account-pages">
+                                    <div class="text-center account-logo-box">
+                                        <h2 class="text-uppercase">
+                                            <a href="#" class="text-success">
+                                                <span>CRUD<span>JSF</span></span>
+                                            </a>
+                                        </h2>
+                                        <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
+                                    </div>
+                                    <div class="account-content">
+                                        <h:form class="form-horizontal">
+                                            <div class="form-group ">
+                                                <div class="col-xs-12">
+                                                    <h:outputLabel value="#{msjs.form_usuario}" />
+                                                    <h:inputText class="form-control" value="#{login.usuario.username}" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group ">
+                                                <div class="col-xs-12">
+                                                    <h:outputLabel value="#{msjs.form_contrasena}" />
+                                                    <h:inputSecret class="form-control" value="#{login.usuario.password}" />
+                                                </div>
+                                                
+                                                <div class="col-xs-12">
+
+                                                    <h:messages class="alert alert-danger p-20" />
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group account-btn text-center m-t-10">
+                                                <div class="col-xs-12">
+                                                    <h:commandButton class="btn btn-primary w-md btn-bordered" value="#{msjs.form_boton_ingresar}" action="#{login.autenticar()}" />
+                                                </div>
+                                            </div>
+
+                                        </h:form>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    
+                                </div>
+                                <!-- end card-box-->
+
+                            </div>
+                            <!-- end wrapper -->
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END HOME -->
+
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/modernizr.min.js"></script>
+
+            <script>
+                var resizefunc = [];
+            </script>
+
+            <!-- Scripts -->
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/app.js"></script>
+
+            <!-- jQuery  -->
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/detect.js"></script>
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/fastclick.js"></script>
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.blockUI.js"></script>
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/waves.js"></script>
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.slimscroll.js"></script>
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.scrollTo.min.js"></script>
+
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.core.js"></script>
+            <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.app.js"></script>
+
 
         </h:body>
-        
-    </f:view>
-</html>
-
-
-
-
-
+    </html>
+</f:view>    

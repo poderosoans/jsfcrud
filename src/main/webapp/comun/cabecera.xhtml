@@ -8,18 +8,58 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    <h:body>
-        <ui:composition>
 
-            <h:panelGrid columns="2">
-                <h:graphicImage  url="/images/logoCibertec.jpg" 
-                                 alt="CIBERTEC - DAT" 
-                                 height="100px"/>
 
-                <h:outputText style="text-align: center; font-size: 36px;" 
-                              value="Java Master Developer"/>
-            </h:panelGrid>
-            
-        </ui:composition>
-    </h:body>
+    <!-- LOGO -->
+    <div class="topbar-left">
+        <h:form>
+        <a href="#{request.contextPath}/faces/principal.xhtml" class="logo">
+            <span>JSF<span>CRUD</span></span><i class="mdi mdi-layers"></i>
+        </a>
+        </h:form>
+
+    </div>
+
+    <!-- Button mobile view to collapse sidebar menu -->
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Navbar-left -->
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <button class="button-menu-mobile open-left waves-effect">
+                        <i class="mdi mdi-menu"></i>
+                    </button>
+                </li>
+
+
+            </ul>
+            <!-- Right(Notification) -->
+            <ul class="nav navbar-nav navbar-right">
+
+                <li>
+                    <a href="#" class="right-menu-item dropdown-toggle" data-toggle="dropdown">
+                        <i class="mdi mdi-settings"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right dropdown-lg user-list notify-list">
+                        <li>
+                            <h5><h:outputText value="#{msjs.mensaje_bienvenida}" />, <h:outputText value="#{session.getAttribute('usuario')}" /></h5>
+                        </li>
+                        <li>
+                            <h:form>
+                            <h:commandLink action="#{login.logout}">
+                                <i class="ti-power-off m-r-5"></i>
+                                <span>
+                                    <h:outputText value="#{msjs.menu_salir}"/>
+                                </span>
+                            </h:commandLink>
+                            </h:form>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul> <!-- end navbar-right -->
+
+        </div><!-- end container -->
+    </div><!-- end navbar -->
 </html>

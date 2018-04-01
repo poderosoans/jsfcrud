@@ -1,49 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <f:view xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      locale="#{facesContext.externalContext.requestLocale}">
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        locale="#{facesContext.externalContext.requestLocale}">
     <html>
         <h:head>
-             <style type="text/css">
-                    @import "css/main.css";
-                    @import "css/links.css";
-                    @import "css/tablas.css";
-                </style>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <title>CRUD - JSF</title>
+
+                <!-- Styles -->
+                <link href="#{request.contextPath}/assets/css/app.css" rel="stylesheet" />
+                <link href="#{request.contextPath}/assets/css/core.css" rel="stylesheet" type="text/css" />
+                <link href="#{request.contextPath}/assets/css/components.css" rel="stylesheet" type="text/css" />
+                <link href="#{request.contextPath}/assets/css/icons.css" rel="stylesheet" type="text/css" />
+                <link href="#{request.contextPath}/assets/css/pages.css" rel="stylesheet" type="text/css" />
+                <link href="#{request.contextPath}/assets/css/menu.css" rel="stylesheet" type="text/css" />
+                <link href="#{request.contextPath}/assets/css/responsive.css" rel="stylesheet" type="text/css" />
         </h:head>
 
-        <h:body>
-                <div id="contenedor">
+                    <h:body class="fixed-left">
+                        <!-- Begin page -->
+                        <div id="wrapper">
 
-			<div id="cabecera">
-                            <ui:insert name="header">
-                                <ui:include src="/comun/cabecera.xhtml" />
-                            </ui:insert>
-			</div>
-                    
-                	<div id="menu">	
-                            <ui:insert name="menus">
-                                <ui:include src="/comun/menu.xhtml" />
-                            </ui:insert>
-			</div>
+                            <!-- Top Bar Start -->
+                            <div class="topbar">
+                                <!-- Header -->
+                                <ui:insert name="header">
+                                    <ui:include src="/comun/cabecera.xhtml" />
+                                </ui:insert>
+                            </div>
+                            <!-- Top Bar End -->
 
-			<div id="cuerpo">
-                            <ui:insert name="body">
-                                <ui:include src="/comun/cuerpo.xhtml" />
-                            </ui:insert>
-			</div>
 
-			<div id="pie">
-                            <ui:insert name="footer">
-                                <ui:include src="/comun/pie.xhtml" />
-                            </ui:insert>
-			</div>
-            </div>
+                            <!-- ========== Left Sidebar Start ========== -->
 
-        </h:body>
-    </html>
+                            <div class="left side-menu">
+                                <div class="sidebar-inner slimscrollleft">
+
+                                    <!--- Sidemenu -->
+                                    <div id="sidebar-menu">
+                                        <ui:insert name="menus">
+                                            <ui:include src="/comun/menu.xhtml" />
+                                        </ui:insert>
+                                    </div>
+                                    <!-- Sidebar -->
+                                    <div class="clearfix"></div>
+
+                                </div>
+                                <!-- Sidebar -left -->
+
+                            </div>
+                            <!-- Left Sidebar End -->
+
+
+
+                            <!-- ============================================================== -->
+                            <!-- Start right Content here -->
+                            <!-- ============================================================== -->
+                            <div class="content-page">
+                                <!-- Start content -->
+                                <div class="content">
+                                    <!-- CUERPO -->
+                                    <ui:insert name="body">
+                                        <ui:include src="/comun/cuerpo.xhtml" />
+                                    </ui:insert>
+
+                                </div> <!-- content -->
+
+
+                                <!-- Footer -->
+                                <ui:insert name="footer">
+                                    <ui:include src="/comun/pie.xhtml" />
+                                </ui:insert>
+                            </div>
+
+
+                        </div>
+                        <!-- END wrapper -->
+
+
+
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/modernizr.min.js"></script>
+
+                        <script>
+                            var resizefunc = [];
+                        </script>
+
+                        <!-- Scripts -->
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/app.js"></script>
+
+                        <!-- jQuery  -->
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/detect.js"></script>
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/fastclick.js"></script>
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.blockUI.js"></script>
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/waves.js"></script>
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.slimscroll.js"></script>
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.scrollTo.min.js"></script>
+
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.core.js"></script>
+                        <script type="text/javascript" src="#{request.contextPath}/assets/js/jquery.app.js"></script>
+
+
+             </h:body>
+     </html>
 </f:view>    
-    

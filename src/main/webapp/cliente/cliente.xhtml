@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        locale="#{facesContext.externalContext.requestLocale}"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/plantillas/layout.xhtml">
+        <ui:define name="body">
+            
+        <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title-box">
+                <h4 class="page-title">
+                    <h:outputText value="#{msjs.formulario_titulo_nuevo}" />
+                </h4>
+                <ol class="breadcrumb p-0 m-0">
+                    <li>
+                        <a href="#{request.contextPath}/faces/principal.xhtml">
+                            <h:outputText value="#{msjs.menu_inicio}" />
+                        </a>
+                    </li>
+                    <li>
+                        <h:form>
+                            <h:commandLink action="#{clienteBean.listar}">
+                                <h:outputText value="#{msjs.menu_lista}" />
+                            </h:commandLink>
+                        </h:form>
+                    </li>
+                    
+                    <li class="active">
+                        <h:outputText value="#{msjs.formulario_titulo_nuevo}" />
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+        <div class="row">
+        <h:form>
+                <h:inputHidden value="#{clienteBean.cliente.codigo}" />
+                <div class="col-xs-6">
+                <div class="form-group">
+                <h:outputLabel value="#{msjs.table_nombre}" />
+                <h:panelGroup>
+                    <h:inputText class="form-control" value="#{clienteBean.cliente.nombre}" label="Nombre" id="nombre" required="true" />
+                    <h:message for="nombre" />
+                </h:panelGroup>
+                </div>
+                    
+                 <div class="form-group">
+                <h:outputLabel value="#{msjs.table_genero}" />
+                <h:selectOneRadio value="#{clienteBean.cliente.genero}">
+                   <f:selectItems value="#{listado.generos}"/>
+               </h:selectOneRadio>
+                </div>  
+                
+                    <div class="form-group">
+               <h:outputLabel value="#{msjs.table_movil}" />
+               <h:inputText class="form-control" value="#{clienteBean.cliente.numeroMovil}" >
+                   <f:converter converterId="numeroMovil" />
+               </h:inputText>
+                </div>
+                </div>
+                <div class="col-xs-6">
+                   <div class="form-group">
+                <h:outputLabel value="#{msjs.table_apellido}" />
+                    <h:panelGroup>
+                        <h:inputText class="form-control" value="#{clienteBean.cliente.apellido}" label="Apellido" id="apellido" required="true" >
+                            <f:validateLength maximum="20" />
+                        </h:inputText>
+                        <h:message for="apellido" />
+                    </h:panelGroup>
+                </div> 
+                    
+                    <div class="form-group">
+                <h:outputLabel value="#{msjs.table_profesion}" />
+                <h:panelGroup>
+                <h:selectOneListbox class="form-control" value="#{clienteBean.cliente.profesion}" 
+                                    size="1">
+                    <f:selectItem itemValue="001" itemLabel="#{msjs.table_arquitecto}" />
+                    <f:selectItem itemValue="002" itemLabel="#{msjs.table_ingeniero}" />
+                </h:selectOneListbox>
+                    <h:outputText value="#{clienteBean.mensaje}" />
+                </h:panelGroup>
+                </div>
+                 
+                    <div class="form-group">
+                        <h:outputLabel value="#{msjs.table_publicidad}" style="margin-right: 10px" />
+                    <h:selectBooleanCheckbox value="#{clienteBean.cliente.publicidad}" />
+                </div>
+                </div>
+
+                
+                <div class="col-xs-12">
+               <div class="form-group">
+               <h:outputLabel value="#{msjs.table_email}" />
+               <h:inputText class="form-control" value="#{clienteBean.cliente.correo}" />
+               </div>
+                 <div class="form-group text-right">
+               <h:commandButton class="btn btn-primary" value="#{msjs.formulario_enviar}" action="#{clienteBean.registrar()}" />
+            </div>   
+                </div>     
+            
+
+        </h:form>
+    </div>
+    <!-- end row -->
+        </div> <!-- container -->
+    </ui:define>
+    </ui:composition>
+</f:view>
+

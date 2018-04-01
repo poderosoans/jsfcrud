@@ -5,13 +5,14 @@
  */
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author Miguel
  */
-public class Cliente {
+public class Cliente implements Serializable{
 
     private int codigo;
     private String nombre;
